@@ -1,0 +1,75 @@
+.flashcard-container {
+  width: 250px;
+  height: 180px;
+  perspective: 1000px;
+  margin: 16px;
+}
+
+.flashcard {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  cursor: pointer;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard .front,
+.flashcard .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: #fff;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flashcard .front {
+  background-color: #f0f8ff;
+  color: #333;
+}
+
+.flashcard .back {
+  background-color: #fff;
+  transform: rotateY(180deg);
+  color: #111;
+  padding: 16px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;   /* ✅ Đảm bảo text bắt đầu từ đầu thẻ */
+  overflow-y: auto;
+  height: 100%;
+}
+
+.flashcard .back h3, .flashcard .back p {
+  margin: 8px 0;
+  text-align: center;
+}
+
+.speak-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: #444;
+}
+
+.speak-button:hover {
+  transform: scale(1.2);
+  color: #000;
+}

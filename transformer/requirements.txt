@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+transformers
+sentencepiece
+torch
+nltk
+git+https://github.com/openai/whisper.git
+python-multipart
+sacremoses

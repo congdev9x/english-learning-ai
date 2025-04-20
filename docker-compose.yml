@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:80"
+    depends_on:
+      - server-api
+
+  server-api:
+    build: ./server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - transformer-api
+
+  transformer-api:
+    build: ./transformer
+    volumes:
+    - whisper_cache:/root/.cache/whisper
+    ports:
+      - "8000:8000"
+
+volumes:
+  whisper_cache:
